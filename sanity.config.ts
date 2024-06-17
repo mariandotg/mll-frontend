@@ -1,6 +1,6 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
-
+import {markdownSchema} from 'sanity-plugin-markdown'
 // import { PUBLIC_SANITY_DATASET, PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_STUDIO_DATASET, PUBLIC_SANITY_STUDIO_PROJECT_ID } from './src/lib/config';
 
 // const projectId = PUBLIC_SANITY_STUDIO_PROJECT_ID || PUBLIC_SANITY_PROJECT_ID;
@@ -13,7 +13,7 @@ export default defineConfig({
   projectId: import.meta.env.PUBLIC_SANITY_STUDIO_PROJECT_ID,
   dataset: import.meta.env.PUBLIC_SANITY_STUDIO_DATASET,
 
-  plugins: [structureTool()],
+  plugins: [structureTool(), markdownSchema()],
 
   schema: {
     types: [
@@ -35,6 +35,16 @@ export default defineConfig({
               source: "title",
               maxLength: 96,
             },
+          },
+          {
+            name: 'body',
+            title: 'Cuerpo',
+            type: 'markdown',
+          },
+          {
+            name: 'imageUrl',
+            title: 'URL de la imagen',
+            type: 'image',
           },
         ],
       }
