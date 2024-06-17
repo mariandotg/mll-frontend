@@ -4,6 +4,7 @@ export const prerender = false;
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import { projectId, dataset } from '../lib/config';
+import { type Post } from '../models/Post';
 import { sanityClient } from "sanity:client";
 
 console.log("test", projectId, dataset)
@@ -15,8 +16,8 @@ console.log("test", projectId, dataset)
 // }
 
 // const categorias = await getFirstPost()
-const posts = await sanityClient.fetch(`*[_type == "post" && defined(slug)]`);
-
+const posts = await sanityClient.fetch(`*[_type == "post" && defined(slug)]`) as Post[];
+console.log("test", posts)
 const date = new Date()
 ---
 

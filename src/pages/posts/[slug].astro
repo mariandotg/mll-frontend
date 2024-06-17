@@ -1,9 +1,10 @@
 ---
 export const prerender = true;
 import { sanityClient } from 'sanity:client';
+import { type Post } from '../../models/Post';
 
 export async function getStaticPaths() {
-  const posts = await sanityClient.fetch(`*[_type == "post" && defined(slug.current)]`);
+  const posts = await sanityClient.fetch(`*[_type == "post" && defined(slug.current)]`) as Post[];
   return posts.map((post) => {
       return {
         params: {
