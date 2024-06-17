@@ -1,7 +1,10 @@
 ---
 export const prerender = true;
+
 import { sanityClient } from 'sanity:client';
+import { marked } from 'marked';
 import { type Post } from '../../models/Post';
+import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const posts = await sanityClient.fetch(`*[_type == "post" && defined(slug.current)]`) as Post[];
@@ -15,13 +18,15 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const { title } = await sanityClient.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug });
+const { title, body } = await sanityClient.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug });
+const content = marked.parse(body);
 
 ---
 
-<html>
-<body>
-  <a href="/">Back</a>
-  <h1>{title}</h1>
-</body>
-</html>
+<Layout title={title}>
+  <a href="/">Volver atrás</a>
+  <section class="text-light m-8">
+      <h1 class="text-3xl">{title}</h1>
+      <article class="" set:html={content} />
+    </section>
+</Layout>
