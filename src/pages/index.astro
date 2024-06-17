@@ -2,34 +2,25 @@
 export const prerender = false;
 
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import { type Post } from '../models/Post';
 import { sanityClient } from "sanity:client";
+import ArticleCard from '../components/ArticleCard.astro';
 
-// export async function getFirstPost() {
-// 	const query = `*[_type == "categories"]`;
-// 	const firstPost = await useSanityClient().fetch(query);
-// 	console.log(firstPost)
-// 	return firstPost
-// }
-
-// const categorias = await getFirstPost()
 const posts = await sanityClient.fetch(`*[_type == "post" && defined(slug)]`) as Post[];
-console.log("test", posts)
+
 const date = new Date()
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Manteniendo la Linea">
 	<main>
-		<!-- {categorias.map((categoria) => <div class="categoria">{categoria.columnaDeportes}</div>)} -->
-		{
-			posts.map((post) => {
-			  console.log(post);
-			  return (
-				<li><a href={"/posts/" + post.slug.current}>{post.title}</a></li>
-			  );
-			})
-		  }
+		<section class="flex flex-col md:grid md:grid-cols-3 gap-4">
+			{
+				posts.map((post) => {
+					console.log(post);
+					return <ArticleCard article={post}/>
+				})
+			}
+		</section>
 		{date}
 	</main>
 </Layout>
