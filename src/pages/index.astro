@@ -3,11 +3,9 @@ export const prerender = false;
 
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import { projectId, dataset } from '../lib/config';
 import { type Post } from '../models/Post';
 import { sanityClient } from "sanity:client";
 
-console.log("test", projectId, dataset)
 // export async function getFirstPost() {
 // 	const query = `*[_type == "categories"]`;
 // 	const firstPost = await useSanityClient().fetch(query);
