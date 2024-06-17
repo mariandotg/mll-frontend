@@ -1,0 +1,19 @@
+---
+const { default: innerHTML } = await import(`../../public/mll-logo.svg?raw`);
+
+const links = [
+    {slug: "/", title: "Inicio"},
+    {slug: "/sobre-nosotros", title: "Sobre nosotros"},
+    {slug: "/contenido", title: "Contenido"}
+]
+
+---
+
+<nav class="bg-dark flex justify-between items-center py-4 px-12 fixed w-full z-50">
+    <div class="w-12 fill-primary-green">
+        <Fragment set:html={innerHTML}/>
+    </div>
+    <ul class="flex gap-4">
+        {links.map((link) => <li><a href={link.slug} class="transition-colors duration-300 text-light hover:text-primary-green">{link.title}</a></li>)}
+    </ul>
+</nav>
