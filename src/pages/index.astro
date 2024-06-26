@@ -8,6 +8,7 @@ import ArticleCard from '../components/ArticleCard.astro';
 
 const posts = await sanityClient.fetch(`*[_type == "post" && defined(slug)]`) as Post[];
 
+const renderPost = [...posts, ...posts]
 const date = new Date()
 ---
 
@@ -17,7 +18,7 @@ const date = new Date()
 			{
 				posts.map((post) => {
 					console.log(post);
-					return <ArticleCard article={post}/>
+					return <ArticleCard article={post} text='bottom'/>
 				})
 			}
 		</section>
@@ -31,12 +32,10 @@ const date = new Date()
 	}
 	main {
 		margin: auto;
+		width: 1200px;
 		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
+		max-width: calc(100% - 1rem);
 		color: white;
-		font-size: 20px;
-		line-height: 1.6;
 	}
 	.astro-a {
 		position: absolute;
@@ -86,3 +85,12 @@ const date = new Date()
 		padding: 0;
 	}
 </style>
+
+<script>
+const menuButton = document.getElementById("menu");
+menuButton?.addEventListener("click", () => {
+	[...document.querySelectorAll(".navmenu-toggle")].forEach((Element) => {
+		Element.classList.toggle("hidden");
+	});
+});
+</script>

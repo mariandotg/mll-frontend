@@ -24,9 +24,22 @@ const content = marked.parse(body);
 ---
 
 <Layout title={title}>
-  <a href="/">Volver atrás</a>
-  <section class="text-light m-8">
-      <h1 class="text-3xl">{title}</h1>
-      <article class="" set:html={content} />
-    </section>
+    <main>
+        <a href="/">Volver atrás</a>
+        <section class="text-light m-8">
+            <h1 class="text-5xl">{title}</h1>
+            <article class="" set:html={content} />
+        </section>
+    </main>
 </Layout>
+
+
+<style>
+	main {
+		margin: auto;
+		width: 1200px;
+		padding: 1rem;
+		max-width: calc(100% - 1rem);
+		color: white;
+	}
+</style>

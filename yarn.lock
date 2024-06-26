@@ -3273,6 +3273,11 @@ arrify@^2.0.1:
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-2.0.1.tgz#c9655e9331e0abcd588d2a7cad7e9956f66701fa"
   integrity sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==
 
+astro-navbar@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/astro-navbar/-/astro-navbar-2.3.3.tgz#86fdb9741f9e4a9658da2a35b730f3e763403aab"
+  integrity sha512-WAiQUVh3fS+bUw1oDcWpddFj30z3VgmMDmSjpU78idCXiV5t4KtlBvKV0mE/+hpcGLK0ji1evvCbk2wQ7wphyQ==
+
 astro-sanity@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/astro-sanity/-/astro-sanity-1.1.7.tgz#7250087c91a23017c8175d4886c40bb412211d8b"
