@@ -20,14 +20,14 @@ const links = [
 </nav> -->
 <div>
     <nav> 
-        <div>
+        <div class="flex justify-between p-4">
             <a href="/">
                 <div class="w-12 fill-primary-green">
                     <Fragment set:html={innerHTML}/>
                 </div>
             </a>
-  
-          <button id="menu" aria-label="Toggle Menu" class="bg-red-500">
+<!--   
+          <button id="menu" aria-label="Toggle Menu" class="bg-red-500 md:hidden">
             <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path class="navmenu-toggle" fill-rule="evenodd"
                 d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
@@ -37,9 +37,16 @@ const links = [
                 d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z">
               </path>
             </svg>
-          </button>
+          </button> -->
+          <!-- <div class="bg-green-500 flex gap-x-4 items-center">
+              {links.map((item, index) => (
+              <a href={item.slug} class="text-xl">
+                {item.title}
+              </a>
+              ))}
+          </div> -->
         </div>
-      <div class="navmenu-toggle hidden bg-green-500">
+      <!-- <div class="navmenu-toggle hidden bg-green-500">
         <div>
           {links.map((item, index) => (
           <a href={item.slug}>
@@ -47,6 +54,6 @@ const links = [
           </a>
           ))}
         </div>
-      </div>
+      </div> -->
     </nav>
   </div>
