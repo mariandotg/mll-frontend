@@ -16,11 +16,14 @@ export async function getStaticPaths() {
     };
   });
 }
-
+marked.setOptions({
+  breaks: true,  // Esto fuerza que los saltos de línea simples sean respetados
+});
 const { slug } = Astro.params;
 const { title, body } = await sanityClient.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug });
 const content = marked.parse(body);
-
+console.log(body)
+console.log(content)
 ---
 
 <Layout title={title}>
